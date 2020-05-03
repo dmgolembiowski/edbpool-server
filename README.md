@@ -12,6 +12,7 @@ This standalone server aims to give clients the most performant way to interact 
 reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems and Database Administrators an intuitive way to manage their company's EdgeDB assets, like those offered by enterprise database systems. 
 
 ## Roadmap
+Note: Tests and scripts are to be fashioned for running on the Docker instance rather than the developer's local environment.
 
 ## Phase 1 Requirements Plan
 
