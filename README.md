@@ -1,10 +1,15 @@
 # EDB Pool Server
+
 > A simple interface for setting up your connection(s) to EdgeDB using the desirable asynchronous pools in the edgedb python client api. All you have to do is send your edgeql statements and it handles the rest. 
+
 ### Overview
+
 This project started as something I wish existed a couple months after EdgeDB 1.0 alpha was released. At the time,
 the connection pool APIs did not make opinionated decisions about how connection pools were to be managed after the initial
 creation and usage, since the examples led me to believe that the pool would close as soon as the last query was ran.
+
 <br />
+
 This standalone server aims to give its users the most performant way to query EdgeDB, especially for systems that make heavy use of
 reverse proxying. Likewise, it aims to give users a similar interface for those familiar with Oracle SQL administration which
 defines properties in a file like the `tnsnames.ora` one would typically see on Redhat servers.
@@ -14,6 +19,7 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 > Phase 1 Requirements Plan
 
 Prepare test cases for:
+
     1. Simulated OS-check
         - [ ] assert fail on MacOSX
         - [ ] assert fail on Windows
@@ -67,5 +73,6 @@ Prepare test cases for:
     - [ ] "/fetchall_json/<query:str>"                          -> '[{}]'
     - [ ] "/result?requestID=<id:int32>"                        -> (Relevant information)
     - [ ] "/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup saved '/result' to return, also redirected to on non-defined route)
+
 2. To be continued ...
 
