@@ -1,0 +1,3 @@
+[submodule "include/edgedb-docker"]
+	path = include/edgedb-docker
+	url = https://github.com/dmgolembiowski/edgedb-docker.git
