@@ -29,10 +29,10 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 - [ ] HTTP test port
 
 ### 3. Have a "pullable" docker image of Ubuntu with EdgeDB and add a set of single port forwards 127.0.0.1:{from -> to} 
-- [ ]         5566 -> 5656, otherwise 15566 -> 5656
-- [ ]         6655 -> 6565, otherwise 16655 -> 6565
-- [ ]        18888 -> 18888
-- [ ]        18080 -> 18080
+- [ ]         5566 -> 5656 if 5566 is available, otherwise 15566 + (x: n + 1) -> 5656
+- [ ]         6655 -> 6565 if 6655 is available, otherwise 16655 + (x: n + 1) -> 6565
+- [ ]        18888 -> 18888 if 18888 is available, otherwise ( n + 1 ) as above
+- [ ]        18080 -> 18080 if 18080 is available, otherwise ( n + 1 ) as above
 ```
     where ports are allocated for
 
@@ -50,10 +50,10 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 ### 6. Run tests from (x) as described:
 - [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
 
-### 7. Pull down (Phase 1) edbpool mock scripts:
+### 7. Pull down (Phase 1) edbpool mock scripts: (testing docker network)
 - [ ] Flask server
-- [ ] with an `index route ('/')` 
-- [ ] a `mock route ('/edgedb')`
+- [ ] with an `index route (':18080/')` 
+- [ ] a `mock route (':18080/edgedb/')`
 
 ## Phase 2 Requirements Plan
 
