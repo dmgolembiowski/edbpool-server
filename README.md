@@ -52,7 +52,7 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 - [ ] https://edgedb.com/docs/tutorial/install#ref-tutorial-install
 
 ### 6. Run tests from (x) as described:
-- [] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
+- [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
 
 ### 7. Pull down edbpool mockscripts, which include:
 - [ ] Flask server
