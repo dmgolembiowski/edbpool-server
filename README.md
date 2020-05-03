@@ -31,10 +31,8 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 - [ ] HTTP test port
 
 ### 3. Have a "pullable" docker image of Ubuntu with EdgeDB and add a set of single port forwards 127.0.0.1:{from -> to} 
-- [ ]         5566 -> 5656
-- [ ]        15566 -> 5656
-- [ ]         6655 -> 6565
-- [ ]        16655 -> 6565
+- [ ]         5566 -> 5656, otherwise 15566 -> 5656
+- [ ]         6655 -> 6565, otherwise 16655 -> 6565
 - [ ]        18888 -> 18888
 - [ ]        18080 -> 18080
 ```
