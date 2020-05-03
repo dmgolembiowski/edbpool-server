@@ -4,15 +4,12 @@
 
 ### Overview
 
-This project started as something I wish existed a couple months after EdgeDB 1.0 alpha was released. At the time,
-the connection pool APIs did not make opinionated decisions about how connection pools were to be managed after the initial
-creation and usage, since the examples led me to believe that the pool would close as soon as the last query was ran.
+This project started as something I wish existed a couple months after EdgeDB 1.0 alpha was released: an opinionated standalone instance that controls your EdgeDB connection pools. The primary aim for this service is to expose easily accessible routes for executing and querying under one hood. 
 
 <br />
 
-This standalone server aims to give its users the most performant way to query EdgeDB, especially for systems that make heavy use of
-reverse proxying. Likewise, it aims to give users a similar interface for those familiar with Oracle SQL administration which
-defines properties in a file like the `tnsnames.ora` one would typically see on Redhat servers.
+This standalone server aims to give clients the most performant way to interact with EdgeDB over a network, especially for systems that make heavy use of
+reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems and Database Administrators an intuitive way to manage their company's EdgeDB assets, like those offered by enterprise database systems. 
 
 ## Roadmap
 
