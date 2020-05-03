@@ -56,8 +56,8 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 
 ### 7. Pull down edbpool mockscripts, which include:
 - [ ] Flask server
-- [ ] with an index route ('/') 
-- [ ] a mock route ('/edgedb')
+- [ ] with an `index route ('/')` 
+- [ ] a `mock route ('/edgedb')`
 
 ## Phase 2 Requirements Plan
 
@@ -69,5 +69,5 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 - [ ] `"/result?requestID=<id:int32>"                        -> (Relevant information)`
 - [ ] `"/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup saved '/result' to return, also redirected to on non-defined route)`
 
-2. To be continued ...
+### 2. To be continued ...
 
