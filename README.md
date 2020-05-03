@@ -57,7 +57,7 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 
 ## Phase 2 Requirements Plan
 
-### 1. Create and test a mock EdgeDB HTTP pool server with seven distinct URIs:
+### 1. Create and test a mock HTTP server with seven distinct URIs:
 - [ ] `"/"                                                   -> '{}'`
 - [ ] `"/execute/<statement:str>"                            -> '{}'`
 - [ ] `"/fetchone_json/<query:str>"                          -> '[{}]'`
