@@ -11,7 +11,8 @@ This project started as something I wish existed a couple months after EdgeDB 1.
 This standalone server aims to give clients the most performant way to interact with EdgeDB over a network, especially for systems that make heavy use of
 reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems and Database Administrators an intuitive way to manage their company's EdgeDB assets, like those offered by enterprise database systems. 
 
-## Roadmap
+## QA/Testing Roadmap
+Note: Tests and scripts are to be fashioned for running on the Docker instance rather than the developer's local environment.
 
 ## Phase 1 Requirements Plan
 
@@ -27,11 +28,11 @@ reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems
 - [ ] HTTP test address
 - [ ] HTTP test port
 
-### 3. Have a "pullable" docker image of Ubuntu with EdgeDB and add a set of single port forwards 127.0.0.1:{from -> to} 
-- [ ]         5566 -> 5656, otherwise 15566 -> 5656
-- [ ]         6655 -> 6565, otherwise 16655 -> 6565
-- [ ]        18888 -> 18888
-- [ ]        18080 -> 18080
+### 3. Have a "pullable" docker image of Debian with EdgeDB and add a set of single port forwards 127.0.0.1:{from -> to} 
+- [X]         5566 -> 5656 if 5566 is available, otherwise 15566 + (x: n + 1) -> 5656
+- [X]         6655 -> 6565 if 6655 is available, otherwise 16655 + (x: n + 1) -> 6565
+- [X]        18888 -> 18888 if 18888 is available, otherwise ( n + 1 ) as above
+- [X]        18080 -> 18080 if 18080 is available, otherwise ( n + 1 ) as above
 ```
     where ports are allocated for
 
@@ -49,14 +50,14 @@ reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems
 ### 6. Run tests from (x) as described:
 - [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
 
-### 7. Pull down (Phase 1) edbpool mock scripts:
+### 7. Pull down (Phase 1) edbpool mock scripts: (testing docker network)
 - [ ] Flask server
-- [ ] with an `index route ('/')` 
-- [ ] a `mock route ('/edgedb')`
+- [ ] with an `index route (':18080/')` 
+- [ ] a `mock route (':18080/edgedb/')`
 
 ## Phase 2 Requirements Plan
 
-### 1. Create and test a mock EdgeDB HTTP pool server with seven distinct URIs:
+### 1. Create and test a mock HTTP server with seven distinct URIs:
 - [ ] `"/"                                                   -> '{}'`
 - [ ] `"/execute/<statement:str>"                            -> '{}'`
 - [ ] `"/fetchone_json/<query:str>"                          -> '[{}]'`
