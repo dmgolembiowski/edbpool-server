@@ -45,14 +45,14 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
                        18080 - HTTP Server related scripting
 ```
 
-### 5. Give the docker image a set of installation for:
+### 5. Give the docker image a set of installation steps for:
 - [ ] https://edgedb.com/docs/internals/dev/
 - [ ] https://edgedb.com/docs/tutorial/install#ref-tutorial-install
 
 ### 6. Run tests from (x) as described:
 - [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
 
-### 7. Pull down edbpool mockscripts, which include:
+### 7. Pull down (Phase 1) edbpool mock scripts:
 - [ ] Flask server
 - [ ] with an `index route ('/')` 
 - [ ] a `mock route ('/edgedb')`
@@ -64,8 +64,8 @@ defines properties in a file like the `tnsnames.ora` one would typically see on 
 - [ ] `"/execute/<statement:str>"                            -> '{}'`
 - [ ] `"/fetchone_json/<query:str>"                          -> '[{}]'`
 - [ ] `"/fetchall_json/<query:str>"                          -> '[{}]'`
-- [ ] `"/result?requestID=<id:int32>"                        -> (Relevant information)`
-- [ ] `"/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup saved '/result' to return, also redirected to on non-defined route)`
+- [ ] `"/result?requestID=<id:int32>"                        -> (CRUD server storage access endpoint)`
+- [ ] `"/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup logged data saved under '/result', or serve as a redirection endpoint for some non-defined route)`
 
 ### 2. To be continued ...
 
