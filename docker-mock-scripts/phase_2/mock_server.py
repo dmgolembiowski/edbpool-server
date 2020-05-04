@@ -17,9 +17,12 @@ class Mode(IntEnum):
 async def crud(packet: Packet, mode: Mode) -> Packet:
     """crud(packet: Packet, mode: Mode) -> Packet:
 
-    This coroutine accepts packets of the form `collections.namedtuple("Packet", ["requestID", "errorCode", "result"])`
-    and citizens of the `Mode` type, such as `Mode.create` or `Mode.delete`.
-    Since this coroutine remembers its state, it is used for storing and retrieving heap-allocated data.
+    This coroutine accepts packets of the form 
+    `namedtuple("Packet", ["requestID", "errorCode", "result"])`
+    and citizens of the `Mode` type,
+    like `Mode.create` and `Mode.delete`.
+    Since this coroutine remembers its state,
+    it is useful for storing and retrieving data.
     """
     cache = {}
     def mapper(packet, mode) -> Packet:
