@@ -24,9 +24,9 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 - [ ] assert fail on anything else
 
 ### 2. Reading values in from a config
-- [ ] EdgeDB DSN
-- [ ] HTTP test address
-- [ ] HTTP test port
+- [X] EdgeDB DSN
+- [X] HTTP test address
+- [X] HTTP test port
 
 ### 3. Have a "pullable" docker image of Debian with EdgeDB and add a set of single port forwards 127.0.0.1:{from -> to} 
 - [X]         5566 -> 5656 if 5566 is available, otherwise 15566 + (x: n + 1) -> 5656
