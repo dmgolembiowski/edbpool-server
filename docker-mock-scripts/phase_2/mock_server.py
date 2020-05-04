@@ -17,11 +17,10 @@ class Mode(IntEnum):
 async def crud(packet: Packet, mode: Mode) -> Packet:
     """crud(packet: Packet, mode: Mode) -> Packet:
 
-    This coroutine accepts packets of the form 
+    This coroutine accepts arguments of the form 
     `namedtuple("Packet", ["requestID", "errorCode", "result"])`
-    and citizens of the `Mode` type,
-    like `Mode.create` and `Mode.delete`.
-    Since this coroutine remembers its state,
+    and citizens of the `Mode` type, i.e. `Mode.create` and 
+    `Mode.delete`. Since this coroutine remembers its state,
     it is useful for storing and retrieving data.
     """
     cache = {}
