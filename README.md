@@ -50,11 +50,6 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 ### 6. Run tests from (x) as described:
 - [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
 
-### 7. Pull down (Phase 1) edbpool mock scripts: (testing docker network)
-- [ ] Flask server
-- [ ] with an `index route (':18080/')` 
-- [ ] a `mock route (':18080/edgedb/')`
-
 ## Phase 2 Requirements Plan
 
 ### 1. Create and test a mock HTTP server with seven distinct URIs:
