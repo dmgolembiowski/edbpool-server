@@ -9,10 +9,10 @@ Packet = namedtuple("Packet", ["requestID", "errorCode", "result"])
 edbpool = Quart(__name__)
 
 class Mode(IntEnum):
-    create = 2
-    read   = 3
-    update = 5
-    delete = 7
+    create = 3
+    read   = 5
+    update = 7
+    delete = 11
 
 async def crud(packet: Packet, mode: Mode) -> Packet:
     """crud(packet: Packet, mode: Mode) -> Packet:
@@ -24,13 +24,14 @@ async def crud(packet: Packet, mode: Mode) -> Packet:
     cache = {}
     def mapper(packet, mode) -> Packet:
         nonlocal cache
-        if (0 & mode % 2) | (0 & mode % 5):
-            cache[str(packet.requestID)] = packet
-        elif (0 & mode % 3) and (str(packet.requestID) in cache):
+        requestID = str(packet.requestID)
+        if 1 & 1 << 21 % mode:
+            cache[requestID] = packet
+        elif (1 & 1 << 5 % mode) and requestID in cache:
             pass
-        elif (0 & mode % 7) and (str(packet.requestID) in cache):
-            deleted = cache[str(packet.requestID)]
-            del cache[str(packet.requestID)]
+        elif (1 & 1 << 11 % mode) and requestID in cache:
+            deleted = cache[requestID]
+            del cache[requestID]
             return deleted
         else:
             error = Packet(
@@ -39,7 +40,7 @@ async def crud(packet: Packet, mode: Mode) -> Packet:
                 f"Bad request: {packet.result}"
             )
             return error
-        return cache[str(packet.requestID)]
+        return cache[requestID]
     return mapper(packet, node)
 
 async def set_result(
