@@ -53,12 +53,14 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 ## Phase 2 Requirements Plan
 
 ### 1. Create and test a mock HTTP server with seven distinct URIs:
-- [ ] `"/"                                                   -> '{}'`
-- [ ] `"/execute/<statement:str>"                            -> '{}'`
-- [ ] `"/fetchone_json/<query:str>"                          -> '[{}]'`
-- [ ] `"/fetchall_json/<query:str>"                          -> '[{}]'`
-- [ ] `"/result?requestID=<id:int32>"                        -> (CRUD server storage access endpoint)`
+- [X] `"/"                                                   -> '{}'`
+- [X] `"/execute/<statement:str>"                            -> '{}'`
+- [X] `"/fetchone_json/<query:str>"                          -> '[{}]'`
+- [X] `"/fetchall_json/<query:str>"                          -> '[{}]'`
+- [X] `"/result?requestID=<id:int32>"                        -> (CRUD server storage access endpoint)`
 - [ ] `"/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup logged data saved under '/result', or serve as a redirection endpoint for some non-defined route)`
 
-### 2. To be continued ...
+### 2. Extend capabilities in the mock HTTP server for:
+- [ ] `async def set_result`
+- [ ] `async def get_result`
 
