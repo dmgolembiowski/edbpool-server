@@ -11,6 +11,59 @@ This project started as something I wish existed a couple months after EdgeDB 1.
 This standalone server aims to give clients the most performant way to interact with EdgeDB over a network, especially for systems that make heavy use of
 reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems and Database Administrators an intuitive way to manage their company's EdgeDB assets, like those offered by enterprise database systems. 
 
+## Installation
+*ToDo*
+
+## Development for Contributiors
+
+> Install docker for your operating system
+
+```bash
+
+# (To Do later...)
+
+# Debian/Ubuntu
+...
+
+# MacOS
+...
+
+# Arch
+...
+
+# Gentoo
+...
+
+# CentOS
+...
+
+# Alpine
+...
+
+# OpenSUSE
+...
+
+# Windows
+...
+
+```
+
+```bash
+git clone --recurse-submodules https://github.com/dmgolembiowski/edbpool.git
+```
+
+```bash
+cd edbpool/modules/edgedb-docker
+```
+
+```bash
+# Depending on your operating system or Docker installation,
+# you may need to elevate to root/admin to run these next commands.
+# Additionally, `1-alpha2` can be replaced with any other valid version.
+
+docker build -t edgedb:1-alpha2 --build-arg version=1-alpha2 .
+```
+
 ## QA/Testing Roadmap
 Note: Tests and scripts are to be fashioned for running on the Docker instance rather than the developer's local environment.
 
