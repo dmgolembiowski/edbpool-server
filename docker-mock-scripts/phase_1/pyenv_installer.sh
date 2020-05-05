@@ -5,7 +5,7 @@ set -e
 
 if [ -z "$PYENV_ROOT" ]; then
   export PYENV_ROOT="${HOME}/.pyenv"
-  echo 'export PYENV_ROOT=$PYENV_ROOT >> ~/.bashrc'
+  export PATH=$PATH:$PYENV_ROOT/bin
 fi
 
 colorize() {
@@ -103,3 +103,5 @@ if ! command -v pyenv 1>/dev/null; then
     esac
   } >&2
 fi
+echo "export PYENV_ROOT=$PYENV_ROOT" >> ~/.bashrc
+echo 'export PATH=$PATH:$PYENV_ROOT/bin' >> ~/.bashrc
