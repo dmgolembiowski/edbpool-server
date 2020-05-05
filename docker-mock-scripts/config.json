@@ -1,0 +1,4 @@
+{
+    "rpc-server-address": "0.0.0.0", 
+    "rpc-server-port": 18888
+}
