@@ -50,6 +50,7 @@ reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems
 
 ```bash
 git clone --recurse-submodules https://github.com/dmgolembiowski/edbpool.git
+git submodule foreach git pull origin master
 ```
 
 ```bash
