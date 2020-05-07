@@ -1,0 +1,26 @@
+There's a possibility that this single package may drastically
+grow beyond its initial purpose, or at the very least, that it'll be the
+gateway for client servers to ask for lower-level operations over the
+network (i.e. redo logging, undo segmentations, caching, shared pools for multiple database endpoints, autoscaling pool size for varying resource usage,
+and the all-to-important logging.
+
+In the event that this does become the case, this preamble marks my awareness
+that I may have bargained for more than I initially set out to do.
+Who knows? Maybe this will even become a side-gig? Hopefully the core team
+won't discover how incompetent and unprepared I really am. :)
+
+In any case, if you're reading this and you're mildly intrigued, feel free to
+tag along! The more, the merrier!
+
+=============================================================================
+Wed 22:18 4-6-2020 (haha, like I'll really continue this labeling trend)
+Today's agenda is configurations, online studies of other architectures, and
+figuring out how to make thing's as simple as possible for me and my users.
+
+Meta goals:
+1) Pen-and-paper out some basic designs and move them to images
+2) Scavenge pieces from my async LDAP project
+3) Review that interesting video on EdgeDB's spectrum chat with the master node
+    election. I think it'll be important to consider those concepts for future
+    load-balancing scenarios.
+
