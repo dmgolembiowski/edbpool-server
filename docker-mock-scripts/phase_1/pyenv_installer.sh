@@ -106,4 +106,4 @@ fi
 echo "export PYENV_ROOT=$PYENV_ROOT" >> ~/.bashrc
 echo 'export PATH=$PATH:$PYENV_ROOT/bin' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-echo 'Please run `exec bash` to update this bash process's environment variables'
+echo "Please run 'exec bash' to update this bash process's environment variables"
