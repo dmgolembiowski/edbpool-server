@@ -63,6 +63,16 @@ cd edbpool/modules/edgedb-docker
 # Additionally, `1-alpha2` can be replaced with any other valid version.
 
 docker build -t edgedb:1-alpha2 --build-arg version=1-alpha2 .
+docker run -it --rm \
+    -p 15656:5656 \
+    -p 5656:5656 \
+    -p 6565:16565 \
+    -p 16565:16565 \
+    -p 18888:18888 \
+    -p 8888:8888 \
+    --name=edgedb-server \
+    -v <datadir>:/var/lib/edgedb/data edgedb:1-alpha2
+# See appendix 2 for a one-liner
 ```
 
 ## QA/Testing Roadmap
@@ -118,3 +128,6 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 - [ ] `async def set_result`
 - [ ] `async def get_result`
 
+> Appendix
+    - <insert command here>
+    - docker run -it --rm -p 15656:5656 -p 5656:5656 -p 6565:16565 -p 16565:16565 -p 18888:18888 -p 8888:8888 --name=edgedb-server -v /tmp/:/var/lib/edgedb/data edgedb:1-alpha2
