@@ -29,9 +29,9 @@ async def crud(packet: Packet, mode: Mode) -> Packet:
         requestID = str(packet.requestID)
         if 1 & 1 << 21 % mode:
             cache[requestID] = packet
-        elif 1 & 1 << 5 % mode & 1 if requestID in cache else 0:
+        elif 1 & 1 << 5 % mode and requestID in cache:
             pass
-        elif 1 & 1 << 11 % mode & 1 if requestID in cache else 0:
+        elif 1 & 1 << 11 % mode and requestID in cache:
             deleted = cache[requestID]
             del cache[requestID]
             return deleted
