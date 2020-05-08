@@ -26,7 +26,7 @@ def connect(command, address="0.0.0.0", docker_proxy_port=18888):
 
 def edbpool_exec(command: str, 
         address: str = "0.0.0.0",
-        docker_proxy_port: int = 18888) -> str
+        docker_proxy_port: int = 18888) -> str:
     """
     This function accepts a terminal command
     to be sent to the endbpool docker
