@@ -14,44 +14,15 @@ reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems
 ## Installation
 *ToDo*
 
-## Development for Contributiors
+## Development Requirements for Contributiors on any OS
+- Docker
 
-> Install docker for your operating system
-
-```bash
-
-# (To Do later...)
-
-# Debian/Ubuntu
-...
-
-# MacOS
-...
-
-# Arch
-...
-
-# Gentoo
-...
-
-# CentOS
-...
-
-# Alpine
-...
-
-# OpenSUSE
-...
-
-# Windows
-...
-
-```
-
+## Contribution instructions
 ```bash
 git clone --recurse-submodules https://github.com/dmgolembiowski/edbpool.git
 git submodule foreach git pull origin master
 ```
+then follow the [remaining instructions](https://github.com/dmgolembiowski/edgedb-docker) on the Edbpool-Server's Docker repository.
 
 ```bash
 cd edbpool/modules/edgedb-docker
@@ -81,11 +52,11 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 ## Phase 1 Requirements Plan
 
 ### 1. Simulated OS-check
-
-- [ ] assert fail on MacOSX
-- [ ] assert fail on Windows
-- [ ] assert pass on Ubuntu/Debian
-- [ ] assert fail on anything else
+> Check the platform and distribution for
+- [ ] fail on MacOSX
+- [ ] fail on Windows
+- [ ] pass on Ubuntu Linux
+- [ ] pass on Debian Linux
 
 ### 2. Reading values in from a config
 - [X] EdgeDB DSN
@@ -102,21 +73,27 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 
     {5566, 15566 (fallback)} - main EdgeDB CLI
     {6655, 16655 (fallback)} - async EDB pool master
-                       18888 - Reverse Shell/RPC-like/Xdotool controls
+                       18888 - Reverse Shell/RPC-like controls
                                or some other comparable passthrough mechanism
                        18080 - HTTP Server related scripting
 ```
 
-### 5. Give the docker image a set of installation steps for:
-- [ ] https://edgedb.com/docs/internals/dev/
-- [ ] https://edgedb.com/docs/tutorial/install#ref-tutorial-install
+### 5. Give the docker image a set of installation steps like those at:
+- [X] https://edgedb.com/docs/internals/dev/
+- [X] https://edgedb.com/docs/tutorial/install#ref-tutorial-install
 
 ### 6. Run tests from (x) as described:
-- [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.
+~~- [ ] at https://edgedb.com/docs/internals/dev#running-tests over the reverse shell.~~
 
 ## Phase 2 Requirements Plan
 
-### 1. Create and test a mock HTTP server with seven distinct URIs:
+### 1. Create a Docker container mock script for:
+- [X] PyEnv installation
+- [X] Dual-purpose Reverse-Shell/Remote procedure call server to run within Docker
+- [X] Python interface to directly coordinate test actions with the `edbpool` user in Docker over the RPC reverse shell API
+<!-- - [ ] -->
+
+### 2. Create and test a mock HTTP server with seven distinct URIs:
 - [X] `"/"                                                   -> '{}'`
 - [X] `"/execute/<statement:str>"                            -> '{}'`
 - [X] `"/fetchone_json/<query:str>"                          -> '[{}]'`
@@ -124,9 +101,62 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 - [X] `"/result?requestID=<id:int32>"                        -> (CRUD server storage access endpoint)`
 - [ ] `"/error?requestID=<id:uint32>&error_code=<err:uint32>"-> (Lookup logged data saved under '/result', or serve as a redirection endpoint for some non-defined route)`
 
-### 2. Extend capabilities in the mock HTTP server for:
+### 3. Extend capabilities in the mock HTTP server for:
 - [ ] `async def set_result`
 - [ ] `async def get_result`
+
+### 4. Updates to the edgedb-docker Dockerfile
+- [ ] Adding capability for data persistence for the `edbpool` user in `/var/data/edbpool/` such that `/home/` and `/srv/` are preserved
+
+## Phase 3
+
+### 1. Research and development
+- [ ] Perform an in-depth analysis on the edgedb-python asynchronous connection pool API
+- [ ] Integrate logic from the [test pool](https://github.com/edgedb/edgedb-python/blob/master/tests/test_pool.py) to recreate the behavior of `test_pool_no_acquire_deadlock` with an `asyncio.LifoQueue`
+
+### 2. Application of prototyping
+Using concepts gathered from Phase 2.2 and Phase 3.1, create an HTTP server with the following requirements:
+- [ ] At least two non-deadlocking, reachable, and concurrent `edgedb.AsyncIOPool`
+- [ ] Each connection class is accounted for
+- [ ] DNS initialization information is gathered from a supplied properties file
+- [ ] The service can be remotely started and stopped by the `edbpool.mock.edbpool_exec` API
+
+## Phase 4a
+
+### 1. Logging
+- [ ] Create a logging interface for single owner file buffers 
+- [ ] Create a logging interface for single owner INET streams
+- [ ] Create a logging interface for multiple, sharing local owner file buffer
+- [ ] Create a logging interface for multiple, sharing owner INET streams
+
+### 2. Fault Tolerance Review
+- [ ] Prepare an analysis of likely errors and exceptions to occur during with the Phase 3.2 prototype, and append those to this remaining section
+- [ ]
+- [ ]
+- [ ] 
+- [ ]
+- [ ]
+
+### 3. Fault Tolerance Revisions
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+
+### 4. Advanced Edbpool Server Configuration and Deployment Scripts
+- [ ]
+- [ ]
+- [ ]
+
+### 5. Official Release (earliest projection at July 30)
+- [ ] PyPI
+- [ ] Debian Repository
+- [ ] Ubuntu PPA
+- [ ] Docker
+
+### Ongoing: Maintaining README files and contributor setup instructions
 
 > Appendix
     - <insert command here>
