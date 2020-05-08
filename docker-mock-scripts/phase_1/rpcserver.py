@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import shocket
+import socket
 import shlex
 import copy
 import subprocess
