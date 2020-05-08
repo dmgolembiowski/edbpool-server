@@ -69,7 +69,8 @@ def edbpool_exec(command: str,
     for further detail. Please ensure that none of the test
     output contains this character.
     """
-
+    return _connect(command, address, docker_proxy_port)
+        
 def _main ():
     import sys
     while True:
