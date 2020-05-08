@@ -13,7 +13,7 @@ In any case, if you're reading this and you're mildly intrigued, feel free to
 tag along! The more, the merrier!
 
 =============================================================================
-Wed 22:18 4-6-2020 (haha, like I'll really continue this labeling trend)
+Wed 22:18 5-6-2020 (haha, like I'll really continue this labeling trend)
 Today's agenda is configurations, online studies of other architectures, and
 figuring out how to make thing's as simple as possible for me and my users.
 
@@ -24,3 +24,34 @@ Meta goals:
     election. I think it'll be important to consider those concepts for future
     load-balancing scenarios.
 
+==============================================================================
+Thurs (technically Friday) Fi 01:24 5-8-2020
+Last-last night I worked out a topology for EdgeDBus, the framework that I'm
+building this whole thing for in the first place. It will be an internet-exposed
+service comprised of the "internet frontier" which includes two layers of 
+security policies and procedures, an executive broadcaster linked to a message
+brokering relay, and a community of maangers and workers -- as defined by the
+properties read from an initial configuration script. Arguably the most exciting
+part about this service is how it can be deployed. Because it will use the lazyscript
+tool I invented, deployment will be able to cater to those tricky
+~software as a service~ models that AWS, Azure, and Digital Ocean are all so hyped
+up about.
+
+Today's work, however, does not reflect those lofty goals. Instead, I created a 
+not-so-simple RPC reverse shell server to accomodate the software
+testing environment that edbpool requires.
+
+Once the docker container is built on the developer's machine, and all of the
+configuration steps are completed, it's routinely easy to automate testing
+without having to destroy and rebuild the entire docker image and database.
+
+This should make sense since my role in this is not actually to test and debug
+the database instance itself, but rather to create an abstraction over the
+python API because (in my humble opinion) it's still too hard to use the best-performing
+interface even though the core team has clearly gone to great lengths to make it simpler.
+To be clear, this abstraction is necessary because connection pools behave
+fundamentally differently from a 
+
+
+Because the purpose of a connection pool is to greatly enhance performance connectivity
+by reducing the lag of slow I
