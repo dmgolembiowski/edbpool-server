@@ -116,8 +116,8 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 
 ### 2. Application of prototyping
 Using concepts gathered from Phase 2.2 and Phase 3.1, create an HTTP server with the following requirements:
-- [ ] At least two non-deadlocking, reachable, and concurrent `edgedb.AsyncIOPool`
-- [ ] Each connection class is accounted for
+- [ ] At least two non-deadlocking, reachable, and concurrent `edgedb.AsyncIOPool` such that pools P<sub>1</sub>, P<sub>2</sub>, ... , P<sub>n</sub> are open for databases DB<sub>1</sub>, DB<sub>2</sub>, ... , DB<sub>n</sub>.
+- [ ] Each connection class is used
 - [ ] DNS initialization information is gathered from a supplied properties file
 - [ ] The service can be remotely started and stopped by the `edbpool.mock.edbpool_exec` API
 
