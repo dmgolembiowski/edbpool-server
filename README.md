@@ -53,10 +53,10 @@ Note: Tests and scripts are to be fashioned for running on the Docker instance r
 
 ### 1. Simulated OS-check
 > Check the platform and distribution for
-- [ ] fail on MacOSX
-- [ ] fail on Windows
-- [ ] pass on Ubuntu Linux
-- [ ] pass on Debian Linux
+- [X] fail on MacOSX
+- [X] fail on Windows
+- [X] pass on Ubuntu Linux
+- [X] pass on Debian Linux
 
 ### 2. Reading values in from a config
 - [X] EdgeDB DSN
