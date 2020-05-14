@@ -19,7 +19,8 @@ reverse proxying or monolithic DNS topologies. Likewise, it aims to give Systems
 
 ## Contribution instructions
 ```bash
-git clone --recurse-submodules https://github.com/dmgolembiowski/edbpool.git
+git clone --recurse-submodules https://github.com/dmgolembiowski/edbpool-server.git
+cd edbpool-server
 git submodule foreach git pull origin master
 ```
 then follow the [remaining instructions](https://github.com/dmgolembiowski/edgedb-docker) on the Edbpool-Server's Docker repository.
