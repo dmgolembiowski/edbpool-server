@@ -9,8 +9,9 @@ cd /home/edbpool/edbpool \
     && export PYENV_ROOT=$PYENV_ROOT \
     && export PATH=$PATH:$PYENV_ROOT/bin \
     && eval "$(pyenv init -)" \
-    && /home/edbpool/.pyenv/bin/pyenv install 3.8-dev \
-    && /home/edbpool/.pyenv/bin/pyenv shell 3.8-dev \
+    && export -f pyenv \
+    && pyenv install 3.8-dev \
+    && pyenv shell 3.8-dev \
     && python3 -m venv . \
     && source bin/activate \
     && pip install -U pip wheel \
