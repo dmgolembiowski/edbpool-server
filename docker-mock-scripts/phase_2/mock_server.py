@@ -98,7 +98,7 @@ def load_and_run(config_path: str):
         edbpool.run(
             host=f"{conf['address']}",
             port=f"{conf['port']}",
-            debug=True
+            debug=False
         )
     except AssertionError:
         print("FAIL", file=asyncio.sys.stdout)
@@ -106,5 +106,3 @@ def load_and_run(config_path: str):
     except KeyError:
         print("FAIL", file=asyncio.sys.stdout)
         asyncio.sys.exit(0)
-        
-
