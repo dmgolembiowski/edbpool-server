@@ -1,10 +1,12 @@
-#!/usr/bin/env bash
-# Checking whether there's a docker installation somewhere
-# on PATH
-hash docker >/dev/null 2>&1
-if [ "$?" != "0" ] ; then 
-    echo "It looks like \`docker\` is not available on this system."
-    echo "Please update your \$PATH variable with the parent directory of your \`docker\` installation."
-    exit 1
+#!/bin/bash
+
+echo -e "\e[30;48;5;82mEDBPool E-Z Setup\e[0m"
+
+if [[ $(id -u) -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
 fi
 
+echo -e "\e[40;38;5;82mBeginning RPC/Reverse Shell Pipeline:"
+
+# /bin/su -c "/bin/bash /home/edbpool/edbpool/docker-mock-scripts/setup.sh" - edbpool
