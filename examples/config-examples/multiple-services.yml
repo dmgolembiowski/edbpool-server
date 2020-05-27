@@ -1,0 +1,63 @@
+pools:
+- doesntMatter1bit
+  acquire_timeout_ms: 644
+  edgedb_port: 5656
+  edgedb_server: 127.0.0.1
+  failover_names: !!set {doesntMatter2bits: null}
+  friendly_name: edgelord-1
+  ip_blacklist:
+    inet4: !!set {}
+    inet6: !!set {}
+  ip_whitelist:
+    inet4: !!set {0.0.0.0: null}
+    inet6: !!set {'::1': null}
+  logging:
+    destination: [
+        /var/log/edbpool/error.log,
+        /var/log/edbpool/warn.log, 
+        /var/log/edbpool/info.log,
+        /var/log/edbpool/debug.log,
+        /var/log/edbpool/trace.log
+    ]
+    level: debug
+    regex_format: null
+  max_idle_time: 1900
+  max_size: 400
+  min_size: 1
+  num_redundant_pools: 2
+  password: '!edbpool'
+  server_address: 127.0.0.1
+  server_port: 6565
+  timeout_retry_attempts: 2
+  user: '!edbpool'
+- doesntMatter2bits
+  acquire_timeout_ms: 644
+  edgedb_port: 5656
+  edgedb_server: 293.167.20.35
+  failover_names: !!set {}
+  friendly_name: edgelord-1-backup
+  ip_blacklist:
+    inet4: !!set {'*': null}
+    inet6: !!set {'*': null}
+  ip_whitelist:
+    inet4: !!set {0.0.0.0: null}
+    inet6: !!set {'::1': null}
+  logging:
+    destination: [
+      /var/log/edbpool/error.log,
+      /var/log/edbpool/warn.log,
+      /var/log/edbpool/info.log,
+      /var/log/edbpool/debug.log,
+      /var/log/edbpool/trace.log
+]
+    level: debug
+    regex_format: null
+  max_idle_time: 1900
+  max_size: 400
+  min_size: 1
+  num_redundant_pools: 2
+  password: '!edbpool'
+  server_address: 192.168.1.122
+  server_port: 6565
+  timeout_retry_attempts: 2
+  user: '!edbpool'
